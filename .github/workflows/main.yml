@@ -1,0 +1,19 @@
+on: 
+  push:
+    branches:
+        - master
+name:  Deploy Website Digital Card
+jobs:
+  web-deploy:
+    name:  Deploy
+    runs-on: ubuntu-latest
+    steps:
+    - name:  Get latest code
+      uses: actions/checkout@v3
+    
+    - name:  Sync files
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      with:
+        server: ftp.justdigitalgurus.com
+        username:  surprise-me@surprise-me.justdigitalgurus.com
+        password: ${{ secrets.PROD_FTP_PASSWORD }}
