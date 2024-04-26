@@ -1,0 +1,78 @@
+.preloader {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 999;
+  background-color: $body-bg;
+
+  .th-btn {
+    padding: 15px 20px;
+    border-radius: 0;
+    font-size: 14px;
+  }
+}
+
+.preloader-inner {
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  line-height: 1;
+
+  img {
+    display: block;
+    margin: 0 auto 10px auto;
+  }
+}
+
+.loader {
+  display: inline-block;
+  width: 120px;
+  box-sizing: content-box;
+  height: 60px;
+  background: transparent;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 2px 2px 50px 2px;
+  border-radius: 100%;
+  position: relative;
+  animation: 5s yinYang linear infinite;
+}
+// .loader:before {
+//   content: "";
+//   position: absolute;
+//   top: 50%;
+//   left: 0;
+//   background: #FFF;
+//   border: 18px solid $theme-color;
+//   border-radius: 100%;
+//   width: 12px;
+//   height: 12px;
+//   box-sizing: content-box;
+// }
+// .loader:after {
+//   content: "";
+//   position: absolute;
+//   top: 50%;
+//   left: 50%;
+//   background: $theme-color;
+//   border: 18px solid #FFF;
+//   border-radius: 100%;
+//   width: 12px;
+//   height: 12px;
+//   box-sizing: content-box;
+// }
+@keyframes yinYang {
+  0% { opacity: 0.5; }
+  70% { opacity: 0.8; }
+  100% { opacity: 1; }
+  // 100%{transform: rotate(360deg)}
+}
+
+@keyframes rotate {
+100%{transform: rotate(360deg)}
+}
