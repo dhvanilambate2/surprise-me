@@ -2,7 +2,7 @@ on:
   push:
     branches:
         - master
-name:  Deploy Website Digital Card
+name:  Deploy Website  Surprise me
 jobs:
   web-deploy:
     name:  Deploy
