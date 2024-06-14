@@ -23,7 +23,9 @@
                 <div class="card">
                     <div class="card-header d-flex justify-content-between align-items-center">
                         <h5>Users Data</h5>
-                        <a href="<?= route('users.create') ?>"><button class="btn btn-primary btn-sm ">Add User</button></a>
+                        @can('users-create')
+                            <a href="<?= route('users.create') ?>"><button class="btn btn-primary btn-sm ">Add User</button></a>
+                        @endcan
                     </div>
                     <div class="table-responsive">
                         <table class="table">
@@ -34,7 +36,9 @@
                                     <th scope="col">Email</th>
                                     <th scope="col">Phone</th>
                                     <th scope="col">Role</th>
+                                    @canany(['users-edit', 'users-delete'])
                                     <th scope="col">Action</th>
+                                    @endcanany
                                 </tr>
                             </thead>
                             <tbody>
@@ -46,12 +50,17 @@
                                         <td>{{ $item->email}}</td>
                                         <td>{{ $item->phone }}</td>
                                         <td>{{ $item->roles }}</th>
+                                        @canany(['users-edit', 'users-delete'])
                                         <td>
                                                 {{-- <a href="{{ route('users.show', $item->id) }}"><button class="btn btn-shadow-secondary btn-sm">View </button></a> --}}
-                                                <a href="{{ route('users.edit', $item->id) }}"><button class="btn btn-shadow-primary btn-sm">Edit </button></a>
+                                                @can('users-edit')
+                                                    <a href="{{ route('users.edit', $item->id) }}"><button class="btn btn-shadow-primary btn-sm">Edit </button></a>
+                                                @endcan
                                                 <!-- Button trigger modal -->
                                                 
-                                                <button class="btn text-danger" type="button" data-toggle="modal" data-original-title="test" data-target="#exampleModal{{$item->id}}"><i data-feather="trash-2" class="fs-1"></i></button>
+                                                @can('users-delete')
+                                                    <button class="btn text-danger" type="button" data-toggle="modal" data-original-title="test" data-target="#exampleModal{{$item->id}}"><i data-feather="trash-2" class="fs-1"></i></button>
+                                                @endcan
                                                 <div class="modal fade" id="exampleModal{{$item->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                     <div class="modal-dialog" role="document">
                                                         <div class="modal-content">
@@ -78,6 +87,7 @@
                                                 <!-- Modal -->
                                             
                                         </td>
+                                        @endcanany
                                     </tr>
                                     
                                 @endforeach

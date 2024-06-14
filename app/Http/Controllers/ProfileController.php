@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
 class ProfileController extends Controller
@@ -55,4 +56,30 @@ class ProfileController extends Controller
         // Redirect with a success message
         return redirect('admin/profile')->with('success', 'User Updated Successfully');
     }
+
+    public function passwordUpdate(Request $request)
+     {
+
+        $validator = Validator::make($request->all(), [
+            'new_password' => 'required|different:old_password',
+            'old_password' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
+         $user = Auth::user();
+        //  dd($user);
+         if (Hash::check($request->old_password, $user->password)) {
+             // Old password matches, update the new password
+             $user->update([
+                 'password' => Hash::make($request->new_password),
+             ]);
+
+             return redirect('admin/profile/edit')->with('success', 'Password changed successfully.');
+         }
+
+         return redirect('admin/profile/edit')->with('error', 'Old password is incorrect.');
+     }
 }

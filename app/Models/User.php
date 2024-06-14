@@ -75,5 +75,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Wishlist::class);
     }
+    public function VendorShop()
+    {
+        return $this->hasMany(VendorShop::class, 'vendor_id');
+    }
 
 }

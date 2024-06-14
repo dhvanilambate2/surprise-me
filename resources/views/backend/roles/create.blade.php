@@ -15,7 +15,6 @@
 
 @section('breadcrumb-items')
 <li class="breadcrumb-item">Role</li>
-<a href="{{ route('blogs.index') }}" class="breadcrumb-item">Role</a>
 <li class="breadcrumb-item active">Add</li>
 @endsection
 
