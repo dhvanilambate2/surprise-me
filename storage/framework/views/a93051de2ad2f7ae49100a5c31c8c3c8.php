@@ -15,7 +15,7 @@
 <link rel="stylesheet" type="text/css" href="<?php echo e(asset('assets/css/bootstrap.css')); ?>">
 <!-- App css-->
 <link rel="stylesheet" type="text/css" href="<?php echo e(asset('assets/css/style.css')); ?>">
-
+<?php echo app('Illuminate\Foundation\Vite')(['public/assets/scss/style.scss', 'resources/js/app.js']); ?>
 <link id="color" rel="stylesheet" href="<?php echo e(asset('assets/css/color-1.css')); ?>" media="screen">
 <!-- Responsive css-->
 <link rel="stylesheet" type="text/css" href="<?php echo e(asset('assets/css/responsive.css')); ?>"><?php /**PATH F:\raj\surprise_me\resources\views/layouts/app/css.blade.php ENDPATH**/ ?>

@@ -7,6 +7,15 @@ use App\Models\Permission;
 
 class PermissionsController extends Controller
 {
+
+    function __construct()
+    {
+         $this->middleware('permission:permission-list|permission-create|permission-edit|permission-delete', ['only' => ['index','store']]);
+         $this->middleware('permission:permission-create', ['only' => ['create','store']]);
+         $this->middleware('permission:permission-edit', ['only' => ['edit','update']]);
+         $this->middleware('permission:permission-delete', ['only' => ['destroy']]);
+    }
+
         public function index()
     {
         $permissions = Permission::all();
@@ -24,7 +33,7 @@ class PermissionsController extends Controller
             'name' => 'required|unique:permissions',
         ]);
 
-        Permission::create($request->all());
+        Permission::create($request->all() + ['guard_name' => 'web']);
 
         return redirect()->route('permissions.index')->with('success', 'The new Permission has been created successfully.');
     }
@@ -40,7 +49,7 @@ class PermissionsController extends Controller
             'name' => 'required|unique:permissions,name,' . $permission->id,
         ]);
 
-        $permission->update($request->all());
+        $permission->update($request->all() + ['guard_name' => 'web']);
 
         return redirect()->route('permissions.index')->with('success', 'The Permission has been Updated successfully.');
     }

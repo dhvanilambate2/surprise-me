@@ -7,6 +7,21 @@
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('style'); ?>
+<style>
+
+.password-input {
+    position: relative;
+}
+
+.toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+</style>
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('breadcrumb-title'); ?>
@@ -37,7 +52,7 @@
                                 </ul>
                             </div>
                         <?php endif; ?>
-                        <form class="row themeform" method="post" action="<?php echo e(url('profile/update/', $users->id)); ?>" enctype="multipart/form-data" id="myForm">
+                        <form class="row themeform" method="post" action="<?php echo e(url('admin/profile/update', $users->id)); ?>" enctype="multipart/form-data" id="myForm">
                             <?php echo csrf_field(); ?>
                             <?php echo method_field('PUT'); ?> <!-- Add this line to set the correct HTTP method -->
 
@@ -54,6 +69,58 @@
                                 <div class="form-group">
                                     <label for="phone">Phone Number</label>
                                     <input class="form-control" id="phone" type="text" placeholder="Enter Number" name="phone" value="<?php echo e(old('phone', $users->phone)); ?>">
+                                </div>
+                            </div>
+                            <div class="btn-showcase">
+                                <button class="btn btn-primary btn-pill" type="submit">Submit</button>
+                                <button class="btn btn-light btn-pill" type="button" onclick="cancelForm()">Discard</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Change Password</h5>
+                    </div>
+                    <div class="card-body add-post">
+                       
+                        <form class="row themeform" method="post" action="<?php echo e(url('admin/password/update', $users->id)); ?>" enctype="multipart/form-data">
+                            <?php echo csrf_field(); ?>
+
+                            <div class="col-sm-12">
+                                <div>
+                                    <label for="old_password">Old Password</label>
+                                    <div class="password-input">
+                                        <input id="old_password" type="password" name="old_password" class="form-control" placeholder="Enter Old Password">
+                                        <i class="fa fa-eye toggle-password" onclick="togglePasswordVisibility('old_password', this)"></i>
+                                    </div>
+                                    <?php $__errorArgs = ['old_password'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                        <span class="error_msg"><?php echo e($message); ?></span>
+                                    <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
+                                </div>
+                                <div class="my-4">
+                                    <label for="new_password" class="form-label">New Password</label>
+                                    <div class="password-input">
+                                        <input id="new_password" type="password" name="new_password" class="form-control" placeholder="Enter New Password">
+                                        <i class="fa fa-eye toggle-password" onclick="togglePasswordVisibility('new_password', this)"></i>
+                                        <?php $__errorArgs = ['new_password'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                            <span class="error_msg"><?php echo e($message); ?></span>
+                                        <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
+                                    </div>
                                 </div>
                             </div>
                             <div class="btn-showcase">
@@ -85,5 +152,20 @@
             document.getElementById('myForm').reset();
         }
     </script>
+    <script>
+        function togglePasswordVisibility(inputId, icon) {
+            const passwordInput = document.getElementById(inputId);
+        
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            } else {
+                passwordInput.type = 'password';
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            }
+        }
+        </script>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('layouts.simple.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH F:\raj\surprise_me\resources\views/backend/profile/edit.blade.php ENDPATH**/ ?>

@@ -1,663 +1,302 @@
-@extends('frontend.layout.app')
-
+@extends('frontend.layouts.app')
 @section('content')
-@php 
-$setting = App\Models\SiteSettng::findOrFail('1'); 
-@endphp
-   
+	<!-- Start of Banner section
+		============================================= -->
+		<section id="bi-banner" class="bi-banner-section" data-background="{{ asset('assets/img/slider/banner_2.png') }}">
+			<div class="bi-banner-content position-relative">
+				<span class="bi-banner-img position-absolute scene banner_img_1  wow zoomIn"  data-wow-delay="0ms" data-wow-duration="2000ms"><img  class="layer" data-depth="0.9" width="483" height="283" src="{{ asset('assets/surpriseme/banner_image1.jpeg') }}" alt=""></span>
+				<span class="bi-banner-img position-absolute scene banner_img_2  wow zoomIn"  data-wow-delay="200ms" data-wow-duration="2000ms"><img class="layer" data-depth="-0.9" width="365" height="214"  src="{{ asset('assets/surpriseme/banner_image3.jpeg') }}" alt=""></span>
+				<span class="bi-banner-img position-absolute scene banner_img_3  wow zoomIn"  data-wow-delay="300ms" data-wow-duration="2000ms"><img class="layer" data-depth="-0.9" width="187" height="110" src="{{ asset('assets/surpriseme/banner_image4.jpeg') }}" alt=""></span>
+				<span class="bi-banner-img position-absolute scene banner_img_4  wow zoomIn"  data-wow-delay="100ms" data-wow-duration="2000ms"><img class="layer" data-depth="0.9" width="459" height="310" src="{{ asset('assets/surpriseme/banner_image2.jpeg') }}" alt=""></span>
+				<span class="bi-banner-img position-absolute scene banner_img_5  wow zoomIn"  data-wow-delay="800ms" data-wow-duration="2000ms"><img class="layer" data-depth="-0.9" width="189" height="110" src="{{ asset('assets/surpriseme/banner_image5.jpeg') }}" alt=""></span>
+				<div class="bi-banner-text headline text-center pera-content">
+					<div class="banner-subtitle text-uppercase wow fadeInUp"  data-wow-delay="0ms" data-wow-duration="1000ms">
+						Welcome To Surprise Me
+					</div>
+					<h1 class="headline-title">Unwrap the Perfect Surprise: Explore Now</h1>
+					<div class="bins-text">
+						<p>Every Occasion Deserves Surprise: Find Yours Here.</p>
+					</div>
+					<div class="bi-btn-2  bi-btn-area text-uppercase wow fadeInUp"  data-wow-delay="400ms" data-wow-duration="1500ms">
+						<a class="bi-btn-main  bi-btn-hover bi-btn-item" href="contact.html">  <span></span> Request a Quote</a>
+					</div>
+				</div>
+			</div>
+		</section>
+<!-- End of Banner section
+	============================================= -->
 
- <!--==============================
-     Preloader
-  ==============================-->
-    <div class="preloader" id="preloader">
-        <button class="th-btn style3 preloaderCls">Cancel Preloader </button>
-        <div class="preloader-inner">
-            <span class="loader" style="width: 250px !important;"><img src="{{ $setting->getFirstMediaUrl('loader_image') }}" class="img-fluid"></span>
-        </div>
-    </div>
-    <div class="th-cursor"></div>
-<!--==============================
-Hero Area
-==============================-->
+<!-- Start of Key Feature section
+	============================================= -->
+	<section id="bi-key-feature" class="bi-key-feature-section position-relative">
+		<span class="bi-side-shape shape_1 position-absolute"><img src="assets/img/bg/shape_1.png" alt=""></span>
+		<div class="container">
+			<div class="bi-key-feature-content">
+				<div class="row">
+					<div class="col-lg-5">
+						<div class="bi-key-feature-title-text  dark-bg-title">
+							<div class="bi-section-title-2 headline">
+								<div class="bi-subtitle text-uppercase wow fadeInRight"  data-wow-delay="200ms" data-wow-duration="1000ms">
+									Welcome Surprise Me
+								</div>
+								<h2 class="headline-title">We Are Fantasy
+									<span>We've Got you</span>
+								Covered on</h2>
+							</div>
+							<div class="bi-btn-2  bi-btn-area text-uppercase wow fadeInRight"  data-wow-delay="400ms" data-wow-duration="1500ms">
+								<a class="bi-btn-main  bi-btn-hover bi-btn-item" href="{{ route('about') }}">  <span></span>About Surprise-me</a>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-7">
+						<div class="bi-key-feature-item-area">
+							<div class="row">
+								<img src="{{ asset('assets/surpriseme/about_image.jpeg') }}">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+<!-- End of Key Feature section
+	============================================= -->	
 
-<div class="th-hero-wrapper hero-4 mw-100">
-    <div class="hero-slider-4 th-carousel" id="heroSlide4" data-fade="false" data-slide-show="1">
-        <div>
-            <div class="th-hero-slide">
-                <div class="th-hero-bg" data-bg-src="{{ url('frontend') }}/assets/img/bg/hero_bg_4_1.jpeg" data-overlay="black" data-opacity="6"></div>
-                <div class="container">
-                    <div class="hero-style4">
-                        <!-- <span class="h4 hero-subtitle" data-ani="slideinup" data-ani-delay="0.1s">Find Your Perfect Space</span> -->
-                        <h1 class="hero-title" data-ani="slideinup" data-ani-delay="0.3s">Find Your </h1>
-                        <h1 class="hero-title" data-ani="slideinup" data-ani-delay="0.5s">Perfect</h1>
-                        <h1 class="hero-title pb-3" data-ani="slideinup" data-ani-delay="0.5s">Space</h1>
-                        <a href="{{ url('projects') }}" class="th-btn" data-ani="slideinup" data-ani-delay="0.7s"><span class="line left"></span> View Projects <span class="line"></span></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div>
-            <div class="th-hero-slide">
-                <div class="th-hero-bg" data-bg-src="{{ url('frontend') }}/assets/img/bg/hero_bg_4_2.jpeg" data-overlay="black" data-opacity="6"></div>
-                <div class="container">
-                    <div class="hero-style4">
-                        <!-- <span class="h4 hero-subtitle" data-ani="slideinup" data-ani-delay="0.1s">DESIGN IS MAKING SENSE OF THINGS.</span> -->
-                        <h1 class="hero-title" data-ani="slideinup" data-ani-delay="0.3s">Discover</h1>
-                        <h1 class="hero-title" data-ani="slideinup" data-ani-delay="0.5s">Distinctive</h1>
-                        <h1 class="hero-title pb-3" data-ani="slideinup" data-ani-delay="0.5s">Residences</h1>
-                        <a href="{{ url('projects') }}" class="th-btn" data-ani="slideinup" data-ani-delay="0.7s"><span class="line left"></span> View Projects <span class="line"></span></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- <div>
-                <div class="th-hero-slide">
-                    <div class="th-hero-bg" data-bg-src="{{ url('frontend') }}/assets/img/bg/hero_bg_4_3.jpg" data-overlay="black" data-opacity="6"></div>
-                    <div class="container">
-                        <div class="hero-style4">
-                            <span class="h4 hero-subtitle" data-ani="slideinup" data-ani-delay="0.1s">DESIGN IS MAKING SENSE OF THINGS.</span>
-                            <h1 class="hero-title" data-ani="slideinup" data-ani-delay="0.3s">Architecture</h1>
-                            <h1 class="hero-title" data-ani="slideinup" data-ani-delay="0.5s">With Different</h1>
-                            <h1 class="hero-title text-transparent" data-ani="slideinup" data-ani-delay="0.5s">Approach</h1>
-                            <a href="project.html" class="th-btn" data-ani="slideinup" data-ani-delay="0.7s"><span class="line left"></span> View Projects <span class="line"></span></a>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
-    </div>
-    <div class="icon-box">
-        <button data-slick-prev="#heroSlide4" class="slick-arrow default cursor-btn"><i class="fal fa-long-arrow-left"></i></button>
-        <button data-slick-next="#heroSlide4" class="slick-arrow default cursor-btn"><i class="fal fa-long-arrow-right"></i></button>
-    </div>
-</div>
-<!--======== / Hero Section ========-->
+<!-- Start of Service section
+	============================================= -->
+	<section id="bi-service-2" class="bi-service-section-2" data-background="assets/img/bg/service-bg.jpg">
+		<div class="bi-service-content-2">
+			<div class="bi-section-title-2 text-center headline pera-content">
+				<div class="bi-subtitle text-uppercase wow fadeInRight"  data-wow-delay="400ms" data-wow-duration="1500ms">
+					Welcome Creative Agency
+				</div>
+				<h2 class="headline-title">Best
+					<span>Services </span>
+				</h2> 
+			</div>
+			<div class="bi-service-item-wrapper-2 wow fadeInUp"  data-wow-delay="400ms" data-wow-duration="2000ms">
+				<div class="bi-service-list-item text-center" data-fx="1">
+					<a class="block__link" data-img="{{ asset('assets/surpriseme/birthday1.jpeg') }}" href="#"><img src="{{ asset('assets/surpriseme/service_birthday1.jpeg') }}" alt="">Birthday</a>
+					<a class="block__link" data-img="{{ asset('assets/surpriseme/occasion1.jpeg') }}" href="#"><img src="{{ asset('assets/surpriseme/service_occasion1.jpeg') }}" alt="">Office Party</a>
+					<a class="block__link" data-img="{{ asset('assets/surpriseme/partner1.jpeg') }}" href="#"><img src="{{ asset('assets/surpriseme/service_partner1.jpeg') }}" alt="">For Partner</a>
+					<a class="block__link" data-img="{{ asset('assets/surpriseme/service_reception1.jpeg') }}" href="#"><img src="{{ asset('assets/surpriseme/service_reception1.jpeg') }}" alt="">Reception</a>
+					<a class="block__link" data-img="{{ asset('assets/surpriseme/team1.jpeg') }}" href="#"><img src="{{ asset('assets/surpriseme/service_team1.jpeg') }}" alt="">Team Party</a>
+					<!--<a class="block__link" data-img="{{ asset('assets/surpriseme/birthday1.jpeg') }}" href="#"><img src="{{ asset('assets/surpriseme/about_image.jpeg') }}" alt="">connecting</a>-->
+					<!--<a class="block__link" data-img="{{ asset('assets/surpriseme/birthday1.jpeg') }}" href="#"><img src="{{ asset('assets/surpriseme/about_image.jpeg') }}" alt="">experience</a>-->
+				</div>
+			</div>
+		</div>
+	</section>		
+<!-- End of Service section
+	============================================= -->
 
-<!--==============================
-About Area  
-==============================-->
+<!-- Start of Consult Cta section
+	============================================= -->
+	<section id="bi-consult-cta" class="bi-consult-cta-section position-relative bg-dark">
+		<div class="container">
+			<div class="bi-consult-cta-content">
+				<div class="row align-items-center">
+					<div class="col-lg-6">
+						<div class="bi-consult-cta-text-area">
+							<div class="bi-section-title-2 headline pera-content">
+								<div class="bi-subtitle text-uppercase wow fadeInRight"  data-wow-delay="200ms" data-wow-duration="1000ms">
+									Welcome Creative Agency
+								</div>
+								<h2 class="tx-split-text split-in-right">
+									<span>Contact with the owner  </span>
+									Plan surprise for others.
+								</h2> 
+							</div>
+							<div class="bi-consult-cta-form-btn ul-li wow fadeInUp"  data-wow-delay="400ms" data-wow-duration="1500ms">
+								
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-6">
+						<div class="bi-consult-form-tab-area">
+							<div class="tab-content" id="bi_consult_tab8">
+								<div class="tab-pane animated fadeInUp show active" id="consult_1_1" role="tabpanel" aria-labelledby="consult_tab_1">
+									<div class="bi-consult-form-wrap d-flex">
+										<div class="bi-consult-form-tilte text-uppercase">
+											Build your website
+										</div>
+										<div class="bi-consult-form-area">
+											<form action="#" method="get">
+												<div class="bi-consult-form-input"  data-background="assets/img/bg/cta-form-bg.jpg">
+													<label><i class="fal fa-user"></i>Name*</label>
+													<input type="text" name="name" placeholder="Type Name">
+													<label><i class="fal fa-envelope"></i>Email*</label>
+													<input type="text" name="Email" placeholder="Type Email">
+													<label><i class="fal fa-phone"></i>Phone*</label>
+													<input type="text" name="name" placeholder="Type Phone Number">
+													<label><i class="fal fa-plug"></i>Subject*</label>
+													<textarea name="message"></textarea>
+												</div>
+												<button> Submit</button>
+											</form>
+										</div>
+									</div>
+								</div>
+								<div class="tab-pane animated fadeInUp" id="consult_1_2" role="tabpanel" aria-labelledby="consult_tab_2">
+									<div class="bi-consult-form-wrap d-flex">
+										<div class="bi-consult-form-tilte text-uppercase">
+											Build your Android App
+										</div>
+										<div class="bi-consult-form-area">
+											<form action="#" method="get">
+												<div class="bi-consult-form-input"  data-background="assets/img/bg/cta-form-bg.jpg">
+													<label><i class="fal fa-user"></i>Name*</label>
+													<input type="text" name="name" placeholder="Type Name">
+													<label><i class="fal fa-envelope"></i>Email*</label>
+													<input type="text" name="Email" placeholder="Type Email">
+													<label><i class="fal fa-phone"></i>Phone*</label>
+													<input type="text" name="name" placeholder="Type Phone Number">
+													<label><i class="fal fa-plug"></i>Subject*</label>
+													<textarea name="message"></textarea>
+												</div>
+												<button> Submit</button>
+											</form>
+										</div>
+									</div>
+								</div>
+								<div class="tab-pane animated fadeInUp" id="consult_1_3" role="tabpanel" aria-labelledby="consult_tab_3">
+									<div class="bi-consult-form-wrap d-flex">
+										<div class="bi-consult-form-tilte text-uppercase">
+											Build your ISO App
+										</div>
+										<div class="bi-consult-form-area">
+											<form action="#" method="get">
+												<div class="bi-consult-form-input"  data-background="assets/img/bg/cta-form-bg.jpg">
+													<label><i class="fal fa-user"></i>Name*</label>
+													<input type="text" name="name" placeholder="Type Name">
+													<label><i class="fal fa-envelope"></i>Email*</label>
+													<input type="text" name="Email" placeholder="Type Email">
+													<label><i class="fal fa-phone"></i>Phone*</label>
+													<input type="text" name="name" placeholder="Type Phone Number">
+													<label><i class="fal fa-plug"></i>Subject*</label>
+													<textarea name="message"></textarea>
+												</div>
+												<button> Submit</button>
+											</form>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>		
+<!-- End of Consult Cta section
+	============================================= -->
 
-<div class="space" id="about-sec">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-xl-6 mb-5 mb-xl-0 wow fadeInLeft" data-wow-delay="0.2s">
-                <div class="img-box1">
-                    <div class="img1">
-                        <img src="{{ url('frontend') }}/assets/img/home/about.png" alt="About">
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-6 wow fadeInRight" data-wow-delay="0.2s">
-                <!-- <p class="sub-title">Eraclis Papachristou Architectural Office</p> -->
-                <h2 class="sec-title mb-40">About <span class="text-transparent">Gaia</span></h2>
-                <p class="mb-30">Welcome to Gaia, your premier destination for real estate excellence. At Gaia, we redefine the real estate experience, offering a dynamic platform that seamlessly connects buyers, sellers, and renters with their ideal properties. Our commitment to innovation, transparency, and personalized service ensures that navigating the real estate landscape becomes not only efficient but also enjoyable. Dive into a world of possibilities with Gaia, where your property journey is guided by expertise, trust, and a commitment to exceeding expectations.</p>
-                <!--<a href="{{ url('/') }}" class="th-btn"><span class="line left"></span> Why Us <span class="line"></span></a>-->
-            </div>
-        </div>
-    </div>
-    <div class="shape-mockup jump" data-top="0" data-right="0"><img src="{{ url('frontend') }}/assets/img/shape/shape_3.png" alt="shape"></div>
-</div>
+<!-- Start of Video Play section
+	============================================= -->
+	<section id="bi-video-play-2" class="bi-video-play-section-2" data-background="{{ asset('assets/surpriseme/banner.png') }}">
+		<div class="container">
+			<div class="bi-video-play-content-2">
+				<div class="video-play-logo text-center">
+					<a class="video_box" href="https://surprise-me.justdigitalgurus.com/assets/surpriseme/videos1.mp4"><img src="{{ asset('assets/img/logo/play-logo.png') }}" alt=""></a>
+				</div>
+				<div class="video-play-text text-center headline">
+					<h3 class="headline-title">We are here for you <span>Give surprise to your fav one.</span></h3>
+				</div>
+			</div>
+		</div>
+	</section>		
+<!-- End of Video Play section
+	============================================= -->
 
-
-<!--==============================
-Feature Area  
-==============================-->
-<section class="space-bottom">
-    <div class="container">
-        <div class="row gy-4">
-            <div class="col-xl-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
-                <div class="feature-card">
-                    <div class="feature-card_icon shape-icon">
-                        <img class="svg-img" src="{{ url('frontend') }}/assets/img/icon/feature_card_1.svg" alt="icon">
-                    </div>
-                    <h3 class="feature-card_title">Competitive Pricings</h3>
-                    <p class="feature-card_text">Experience the advantage of competitive pricing as we offer you exceptional value in the real estate market, ensuring affordability without compromising on quality and features.</p>
-                </div>
-            </div>
-            <div class="col-xl-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                <div class="feature-card">
-                    <div class="feature-card_icon shape-icon">
-                        <img class="svg-img" src="{{ url('frontend') }}/assets/img/icon/feature_card_2.svg" alt="icon">
-                    </div>
-                    <h3 class="feature-card_title">Luxury Home Customization</h3>
-                    <p class="feature-card_text">Immerse yourself in opulence with our luxury home customization service, meticulously tailored to transform your residence into a bespoke haven of elegance and comfort. <br>&nbsp;</p>
-                </div>
-            </div>
-            <div class="col-xl-4 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
-                <div class="feature-card">
-                    <div class="feature-card_icon shape-icon">
-                        <img class="svg-img" src="{{ url('frontend') }}/assets/img/icon/feature_card_3.svg" alt="icon">
-                    </div>
-                    <h3 class="feature-card_title">Skilled Property Management</h3>
-                    <p class="feature-card_text">Experience peace of mind with our skilled property management services, where expert oversight and strategic solutions ensure the seamless operation and optimization of your real estate investments.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!--==============================
-Project Area  
-==============================-->
-<section class="space-bottom overflow-hidden">
-    <div class="container">
-        <div class="row justify-content-md-between align-items-end">
-            <div class="col-md-8 wow fadeInUp" data-wow-delay="0.2s">
-                <div class="title-area">
-                    <h2 class="sec-title">Current
-                        <span class="text-transparent">projects</span>
-                    </h2>
-                </div>
-            </div>
-            <div class="col-auto mt-n4 mt-lg-0 wow fadeInUp" data-wow-delay="0.3s">
-                <div class="sec-btn">
-                    <a href="{{ url('projects') }}" class="link-btn">View The Projects</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container th-container3">
-        <div class="project-slide-wrap">
-            <div class="row" id="projectSlide3">
-                @php
-                    $count = 01;
-                @endphp
-                @foreach($home_details as $home_detail)
-                <div class="col-lg-6">
-                    <div class="project-card">
-                        <div class="project-img">
-                        @if($home_detail->getFirstMediaUrl('images'))
-                            @if($home_detail->home_for == 'rent')
-                                <a href="{{ route('home_for_rent.details', ['id' => $home_detail->id]) }}">
-                                    <img src="{{ $home_detail->getFirstMediaUrl('images') }}" alt="project image" style="height:410px !important; width:100%">
-                                </a>
-                            @else 
-                                <a href="{{ route('home_for_sale.details', ['id' => $home_detail->id]) }}">
-                                    <img src="{{ $home_detail->getFirstMediaUrl('images') }}" alt="project image" style="height:410px !important; width:100%">
-                                </a>
-                            @endif
-                            
-                        @endif
-                        </div>
-                        {{-- {{dd($home_detail->status);}} --}}
-                        @if($home_detail->home_for == 'rent')
-                            <h3 class="h5 project-title"><a href="{{ route('home_for_rent.details', ['id' => $home_detail->id]) }}">{{ $home_detail->property_name }}</a></h3>
-                        @else 
-                            <h3 class="h5 project-title"><a href="{{ route('home_for_sale.details', ['id' => $home_detail->id]) }}">{{ $home_detail->property_name }}</a></h3>
-                        @endif
-                        <p class="project-map"><i class="fal fa-location-dot"></i>{{ $home_detail->address }}</p>
-                        @if ($count > 9)
-                            <div class="project-number">{{ $count }}</div>
-                        @else
-                            <div class="project-number">0{{ $count }}</div>
-                        @endif
-                    </div>
-                </div>
-                    @php
-                        $count++
-                    @endphp
-                @endforeach
-                
-            </div>
-            <div class="slider-nav-wrap">
-                <div class="slider-nav">
-                    <button data-slick-prev="#projectSlide3" class="nav-btn"><i class="fal fa-long-arrow-left"></i></button>
-                    <div class="custom-dots"></div>
-                    <button data-slick-next="#projectSlide3" class="nav-btn"><i class="fal fa-long-arrow-right"></i></button>
-                </div>
-            </div>
-        </div>
-    </div>
-</section><!--==============================
-Counter Area  
-==============================-->
-
-
-<!-- <section class=" ">
-        <div class="container">
-            <div class="video-counter">
-                <div class="th-video">
-                    <img src="{{ url('frontend') }}/assets/img/normal/video_1.jpg" alt="video">
-                    <a href="https://www.youtube.com/watch?v=_sI_Ps7JSEk" class="play-btn style2 popup-video"><i class="fas fa-play"></i></a>
-                </div>
-                <div class="counter-card-video">
-                    <h2 class="sec-title mb-4 wow fadeInUp" data-wow-delay="0.2s">Simplicity Is The <span class="text-transparent">Ultimate</span></h2>
-                    <div class="counter-card-wrap">
-                        <div class="counter-card wow fadeInUp" data-wow-delay="0.2s">
-                            <h3 class="counter-card_number"><span class="counter-number">600</span></h3>
-                            <p class="counter-card_text">Projects</p>
-                        </div>
-                        <div class="counter-card wow fadeInUp" data-wow-delay="0.3s">
-                            <h3 class="counter-card_number"><span class="counter-number">60</span></h3>
-                            <p class="counter-card_text">Employees</p>
-                        </div>
-                        <div class="counter-card wow fadeInUp" data-wow-delay="0.4s">
-                            <h3 class="counter-card_number"><span class="counter-number">200</span></h3>
-                            <p class="counter-card_text">Conractors</p>
-                        </div>
-                        <div class="counter-card wow fadeInUp" data-wow-delay="0.5s">
-                            <h3 class="counter-card_number"><span class="counter-number">10000</span></h3>
-                            <p class="counter-card_text">More Then Publications in The World Press</p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section> -->
-
-<!--==============================
-Service Area  
-==============================-->
-
-
-<!-- <section class="overflow-hidden space">
-        <div class="container">
-            <div class="row justify-content-lg-between align-items-end">
-                <div class="col-lg-8 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="title-area">
-                        <h2 class="sec-title">High-quality architectural
-                            <span class="text-transparent">services</span>
-                        </h2>
-                    </div>
-                </div>
-                <div class="col-auto mt-n4 mt-lg-0 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="sec-btn">
-                        <a href="service.html" class="link-btn">View all Services</a>
-                    </div>
-                </div>
-            </div>
-            <div class="service-grid-area">
-                <div class="service-list-slide">
-                    <button data-slick-prev="#sr-list" class="slick-btn top"><i class="fal fa-chevron-up"></i></button>
-                    <div class="th-carousel" id="sr-list" data-slide-show="4" data-lg-slide-show="4" data-md-slide-show="4" data-sm-slide-show="4" data-xs-slide-show="4" data-vertical="true" data-verticalSwiping="true" data-asnavfor="#sr-grid, #sr-img">
-                        <div>
-                            <div class="service-list">
-                                <span class="service-list_number">01</span>
-                                <h4 class="service-list_title">Architecture</h4>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="service-list">
-                                <span class="service-list_number">02</span>
-                                <h4 class="service-list_title">Interior Design</h4>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="service-list">
-                                <span class="service-list_number">03</span>
-                                <h4 class="service-list_title">Urban Interventions</h4>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="service-list">
-                                <span class="service-list_number">04</span>
-                                <h4 class="service-list_title">Landscape Design</h4>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="service-list">
-                                <span class="service-list_number">05</span>
-                                <h4 class="service-list_title">Interdisciple Entity</h4>
-                            </div>
-                        </div>
-                    </div>
-                    <button data-slick-next="#sr-list" class="slick-btn bottom"><i class="fal fa-chevron-down"></i></button>
-                </div>
-                <div class="service-grid-slide">
-                    <div class="th-carousel" id="sr-grid" data-slide-show="1" data-md-slide-show="1" data-asnavfor="#sr-list, #sr-img">
-                        <div>
-                            <div class="service-card style2">
-                                <div class="service-card_icon">
-                                    <img class="svg-img" src="{{ url('frontend') }}/assets/img/icon/service_1_1.svg" alt="service image">
-                                </div>
-                                <p class="service-card_num text-transparent">01</p>
-                                <h3 class="service-card_title">Architecture</h3>
-                                <p class="service-card_text">We see architecture as the composition of all elements that define a particular space and inform the character of a building.</p>
-                                <a href="service-details.html" class="link-btn">View Details</a>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="service-card style2">
-                                <div class="service-card_icon">
-                                    <img class="svg-img" src="{{ url('frontend') }}/assets/img/icon/service_1_2.svg" alt="service image">
-                                </div>
-                                <p class="service-card_num text-transparent">02</p>
-                                <h3 class="service-card_title">Interior Design</h3>
-                                <p class="service-card_text">In Order architecture as the composition of all elements that define a particular space and inform the character of a interior.</p>
-                                <a href="service-details.html" class="link-btn">View Details</a>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="service-card style2">
-                                <div class="service-card_icon">
-                                    <img class="svg-img" src="{{ url('frontend') }}/assets/img/icon/service_1_3.svg" alt="service image">
-                                </div>
-                                <p class="service-card_num text-transparent">03</p>
-                                <h3 class="service-card_title">Urban Interventions</h3>
-                                <p class="service-card_text">The Urban architecture as the composition of all elements that define a particular space and inform the character of into.</p>
-                                <a href="service-details.html" class="link-btn">View Details</a>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="service-card style2">
-                                <div class="service-card_icon">
-                                    <img class="svg-img" src="{{ url('frontend') }}/assets/img/icon/service_1_4.svg" alt="service image">
-                                </div>
-                                <p class="service-card_num text-transparent">04</p>
-                                <h3 class="service-card_title">Landscape Design</h3>
-                                <p class="service-card_text">The Best architecture as composition of all elements that define a particular space and inform the character of a Landscape.</p>
-                                <a href="service-details.html" class="link-btn">View Details</a>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="service-card style2">
-                                <div class="service-card_icon">
-                                    <img class="svg-img" src="{{ url('frontend') }}/assets/img/icon/service_1_5.svg" alt="service image">
-                                </div>
-                                <p class="service-card_num text-transparent">05</p>
-                                <h3 class="service-card_title">Interdisciple Entity</h3>
-                                <p class="service-card_text">You see architecture as the composition of all elements that define a particular space and inform the character of a Gowring.</p>
-                                <a href="service-details.html" class="link-btn">View Details</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="service-grid-img">
-                    <div class="th-carousel" id="sr-img" data-slide-show="1" data-md-slide-show="1" data-asnavfor="#sr-grid, #sr-list">
-                        <div>
-                            <div class="img">
-                                <img src="{{ url('frontend') }}/assets/img/service/service_1_1.jpg" alt="service Image">
-                            </div>
-                        </div>
-                        <div>
-                            <div class="img">
-                                <img src="{{ url('frontend') }}/assets/img/service/service_1_2.jpg" alt="service Image">
-                            </div>
-                        </div>
-                        <div>
-                            <div class="img">
-                                <img src="{{ url('frontend') }}/assets/img/service/service_1_3.jpg" alt="service Image">
-                            </div>
-                        </div>
-                        <div>
-                            <div class="img">
-                                <img src="{{ url('frontend') }}/assets/img/service/service_1_4.jpg" alt="service Image">
-                            </div>
-                        </div>
-                        <div>
-                            <div class="img">
-                                <img src="{{ url('frontend') }}/assets/img/service/service_1_5.jpg" alt="service Image">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
-
-
-
-<!--==============================
-Team Area  
-==============================-->
-@if($team_section->status == 1)
-
-<section class="space-bottom">
-    <div class="container">
-        <div class="row justify-content-md-between align-items-end">
-            <div class="col-md-8 wow fadeInUp" data-wow-delay="0.2s">
-                <div class="title-area">
-                    <h2 class="sec-title">Meet Our 
-                        <span class="text-transparent">Team</span>
-                    </h2>
-                </div>
-            </div>
-            <div class="col-auto mt-n4 mt-lg-0 wow fadeInUp" data-wow-delay="0.3s">
-                <div class="sec-btn">
-                    <a href="{{ url('teams') }}" class="link-btn">Show More</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="row th-carousel" data-slide-show="4" data-lg-slide-show="3" data-md-slide-show="2">
-            <!-- Single Item -->
-            
-            @foreach($teams as $index => $team)
-                @if($index < 4)
-                    <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.2s">
-                        <div class="team-card  ">
-                            <p class="team-desig">{{ $team->post }}</p>
-                            <h3 class="h5 team-title"><a href="{{ route('team.details', ['id' => $team->id]) }}">{{ $team->name }}</a></h3>
-                            <div class="th-social">
-                                @if($team->facebook)
-                                    <a target="_blank" href="{{$team->facebook}}"><i class="fab fa-facebook-f"></i></a>
-                                @endif
-                                @if($team->skype)
-                                    <a target="_blank" href="{{$team->skype}}"><i class="fab fa-skype"></i></a>
-                                @endif
-                                @if($team->twitter)
-                                    <a target="_blank" href="{{$team->twitter}}"><i class="fab fa-twitter"></i></a>
-                                @endif
-                            </div>
-                            <div class="team-img">
-                                <img src="{{ $team->getFirstMediaUrl('teams') }}" alt="Team">
-                            </div>
-                        </div>
-                    </div>
-                @endif
-            @endforeach
-        </div>
-    </div>
-</section>
-@endif
-
-<!--==============================
-Testimonial Area  
-==============================-->
-@if($review_section->status == 1)
-<div class="space-bottom ">
-    <div class="container">
-        <h2 class="sec-title text-center wow fadeInUp" data-wow-delay="0.2s">Client <span class="text-transparent">Reviews</span></h2>
-        <div class="row testi-box-slide th-carousel" data-slide-show="2" data-md-slide-show="1">
-            @foreach($reviews as $item)
-            <div class="col-lg-6">
-                <div class="testi-box">
-                    <p class="testi-box_text">{!! $item->description !!}</p>
-                    <div class="testi-box_profile">
-                        <div class="testi-box_img">
-                            <img src="{{ $item->getFirstMediaUrl('reviews') }}" alt="Avater">
-                        </div>
-                        <div class="testi-box_info">
-                            <h3 class="testi-box_name">{{ $item->name }}</h3>
-                            <span class="testi-box_desig">{{ $item->post }}</span>
-                        </div>
-                    </div>
-                    <div class="testi-box_icon">
-                        <img src="{{ $item->getFirstMediaUrl('reviews') }}" alt="icon">
-                    </div>
-                </div>
-            </div>
-            @endforeach
-        </div>
-    </div>
-</div>
-@endif
-
-
-<section class="space-bottom">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-xl-6 mb-40 mb-xl-0 wow fadeInUp" data-wow-delay="0.<br />
-<b>Warning</b>:  Undefined variable $x in <b>D:\angfuzsoft\html\artra-html\build\inc\sections\contact-sec-v1.php</b> on line <b>4</b><br />
-2s">
-                <div class="img-box5">
-                    <div class="img1">
-                        <img src="{{ url('frontend') }}/assets/img/home/contact.png" alt="contact">
-                    </div>
-                    <div class="info-card-wrap">
-                        <div class="info-card">
-                            <div class="info-card_icon">
-                                <i class="fal fa-phone"></i>
-                            </div>
-                            <div class="info-card_content">
-                                <span class="info-card_text">CALL US:</span>
-                                <a href="tel:+12345678900" class="info-card_link text-nowrap">(+1) {{ $setting->phone}}</a>
-                            </div>
-                        </div>
-                        <div class="info-card">
-                            <div class="info-card_icon">
-                                <i class="fal fa-envelope"></i>
-                            </div>
-                            <div class="info-card_content">
-                                <span class="info-card_text">EMAIL US:</span>
-                                <a href="mailto:info@gaiahomesfl.com" class="info-card_link text-nowrap fs-5">{{ $setting->email }}</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-6 wow fadeInUp" data-wow-delay="0.2s">
-                <h2 class="sec-title">Need assistance? <br>
-                    Drop us a <span class="text-transparent">Message</span> anytime.
-                </h2>
-                <form class="needs-validation" novalidate action="{{ route('contact.store') }}" method="POST" class="contact-form">
-                @csrf
-                    <div class="row">
-                        <div class="form-group col-12">
-                            <input type="text" class="form-control" name="name" id="name" maxlength="50" placeholder="Your Name" value="{{ old('name') }}" required>
-                            <input type="hidden" class="form-control" name="hid" id="hid" value="0" required>
-                            <input type="hidden" class="form-control" name="home_mode" id="home_mode" value="contact" required>
-                           <div class="invalid-feedback">
-                                Please Enter your Name.
-                              </div>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <input type="number" class="form-control" name="number" id="number" placeholder="Your Number" value="{{ old('number') }}" required>
-                            <div class="invalid-feedback">
-                                Please Enter Number.
-                             </div>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <input type="text" class="form-control" name="subject" id="subject" maxlength="200" placeholder="Subject" value="{{ old('subject') }}" required>
-                            <div class="invalid-feedback">
-                                Please Enter Subject.
-                             </div> 
-                        </div>
-                        <div class="form-group col-12">
-                            <input type="email" class="form-control" name="email" id="email" placeholder="Email Address" maxlength="200" value="{{ old('email') }}" required>
-                            <div class="invalid-feedback">
-                                Please Enter Email.
-                             </div>
-                        </div>
-                        <div class="form-group col-12">
-                            <textarea name="message" id="message" cols="30" rows="3" class="form-control" placeholder="Message" required>{{ old('message') }}</textarea>
-                            <div class="invalid-feedback">
-                                Please Enter Message.
-                             </div
-                        </div>
-                        <div class="form-btn col-12 mt-10">
-                            <button type="submit" class="th-btn"><span class="line left"></span> Send Message <span class="line"></span></button>
-                        </div>
-                    </div>
-
-                </form>
-            </div>
-        </div>
-    </div>
-    <div class="shape-mockup jump" data-top="0" data-right="0"><img src="{{ url('frontend') }}/assets/img/shape/shape_3.png" alt="shape"></div>
-</section>
-
-
-
-
-
-<!--==============================
-Blog Area  
-==============================-->
-
-<!-- <section class="space">
-        <div class="container">
-            <div class="row justify-content-md-between align-items-end">
-                <div class="col-md-8 wow fadeInUp" data-wow-delay="0.2s">
-                    <div class="title-area">
-                        <h2 class="sec-title">Our Latest
-                            <span class="text-transparent">Blogs</span>
-                        </h2>
-                    </div>
-                </div>
-                <div class="col-auto mt-n4 mt-lg-0 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="sec-btn">
-                        <a href="blog.html" class="link-btn">View The Blogs</a>
-                    </div>
-                </div>
-            </div>
-            <div class="row th-carousel" data-slide-show="3" data-lg-slide-show="2" data-md-slide-show="2" data-sm-slide-show="1">
-                <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="blog-grid">
-                        <div class="blog-img">
-                            <img src="{{ url('frontend') }}/assets/img/blog/blog_3_1.jpg" alt="blog image">
-                        </div>
-                        <div class="blog-content">
-                            <div class="blog-meta style2">
-                                <a href="blog.html">Architecture</a>
-                                <a href="blog.html">February 15, 2023</a>
-                            </div>
-                            <p class="blog-text">Morbi condimentum congue dui, elementum maximus augue porttitor a. Quisque volutpat et dui at fringilla. Integer sed justo quis lacus sodales porta. Class aptent taciti sociosqu ad litora torquent per conubia nostra.</p>
-                            <a href="blog-details.html" class="link-btn">Read More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.2s">
-                    <div class="blog-grid">
-                        <div class="blog-img">
-                            <img src="{{ url('frontend') }}/assets/img/blog/blog_3_2.jpg" alt="blog image">
-                        </div>
-                        <div class="blog-content">
-                            <div class="blog-meta style2">
-                                <a href="blog.html">Architecture</a>
-                                <a href="blog.html">February 16, 2023</a>
-                            </div>
-                            <p class="blog-text">Morbi condimentum congue dui, elementum maximus augue porttitor a. Quisque volutpat et dui at fringilla. Integer sed justo quis lacus sodales porta. Class aptent taciti sociosqu ad litora torquent per conubia nostra.</p>
-                            <a href="blog-details.html" class="link-btn">Read More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="blog-grid">
-                        <div class="blog-img">
-                            <img src="{{ url('frontend') }}/assets/img/blog/blog_3_3.jpg" alt="blog image">
-                        </div>
-                        <div class="blog-content">
-                            <div class="blog-meta style2">
-                                <a href="blog.html">Architecture</a>
-                                <a href="blog.html">February 17, 2023</a>
-                            </div>
-                            <p class="blog-text">Morbi condimentum congue dui, elementum maximus augue porttitor a. Quisque volutpat et dui at fringilla. Integer sed justo quis lacus sodales porta. Class aptent taciti sociosqu ad litora torquent per conubia nostra.</p>
-                            <a href="blog-details.html" class="link-btn">Read More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.4s">
-                    <div class="blog-grid">
-                        <div class="blog-img">
-                            <img src="{{ url('frontend') }}/assets/img/blog/blog_3_4.jpg" alt="blog image">
-                        </div>
-                        <div class="blog-content">
-                            <div class="blog-meta style2">
-                                <a href="blog.html">Architecture</a>
-                                <a href="blog.html">February 18, 2023</a>
-                            </div>
-                            <p class="blog-text">Morbi condimentum congue dui, elementum maximus augue porttitor a. Quisque volutpat et dui at fringilla. Integer sed justo quis lacus sodales porta. Class aptent taciti sociosqu ad litora torquent per conubia nostra.</p>
-                            <a href="blog-details.html" class="link-btn">Read More</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
-    
-  
-
-
+<!-- Start of team section
+	============================================= -->
+	<section id="bi-team-2" class="bi-team-section-2 position-relative">
+		<span class="bi-side-shape shape_1 position-absolute"><img src="{{ asset('assets/img/bg/shape_7.png') }}" alt=""></span>
+		<div class="container">
+			<div class="bi-section-title-2 text-center  headline">
+				<div class="bi-subtitle text-uppercase wow fadeInRight"  data-wow-delay="200ms" data-wow-duration="1500ms">
+					Visit the Restaurant and Cafe
+				</div>
+				<h2 class="headline-title">Expert
+					<span>Restaurant and Cafe</span>
+				</h2>
+			</div>
+			<div class="bi-team-content-2">
+				<div class="row justify-content-center">
+					<div class="col-lg-4 col-md-6 wow fadeInUp"  data-wow-delay="300ms" data-wow-duration="1200ms">
+						<div class="bi-team-item-2 text-center">
+							<div class="bi-team-img-shape position-relative">
+								<span class="team-shape shape_1 position-absolute"><img src="{{ asset('assets/img/icon/tm-shape1.png') }}" alt=""></span>
+								<span class="team-shape shape_2 position-absolute"><img src="{{ asset('assets/img/icon/tm-shape2.png') }}" alt=""></span>
+								<div class="bi-team-img ctm-img">
+									<img src="{{ asset('assets/surpriseme/cafe1.jpg') }}" alt="">
+								</div>
+							</div>
+							<div class="bi-team-text headline">
+								<h3><a href="#">Size Zero</a></h3>
+								<span>Rajkot</span>
+							</div>
+							<div class="bi-team-social ul-li">
+								<ul>
+									<li><a href="#"> <i class="fab fa-instagram"></i></a></li>
+									<li><a href="#"> <i class="fab fa-linkedin-in"></i></a></li>
+									<li><a href="#"> <i class="fab fa-facebook"></i></a></li>
+									<li><a href="#"> <i class="fab fa-youtube"></i></a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-6 wow fadeInUp"  data-wow-delay="400ms" data-wow-duration="1200ms">
+						<div class="bi-team-item-2 text-center">
+							<div class="bi-team-img-shape position-relative">
+								<span class="team-shape shape_1 position-absolute"><img src="{{ asset('assets/img/icon/tm-shape1.png') }}" alt=""></span>
+								<span class="team-shape shape_2 position-absolute"><img src="{{ asset('assets/img/icon/tm-shape2.png') }}" alt=""></span>
+								<div class="bi-team-img ctm-img">
+									<img src="{{ asset('assets/surpriseme/cafe3.jpg') }}" alt="">
+								</div>
+							</div>
+							<div class="bi-team-text headline">
+								<h3><a href="#">Tea Post</a></h3>
+								<span> Rajkot</span>
+							</div>
+							<div class="bi-team-social ul-li">
+								<ul>
+									<li><a href="#"> <i class="fab fa-instagram"></i></a></li>
+									<li><a href="#"> <i class="fab fa-linkedin-in"></i></a></li>
+									<li><a href="#"> <i class="fab fa-facebook"></i></a></li>
+									<li><a href="#"> <i class="fab fa-youtube"></i></a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-6 wow fadeInUp"  data-wow-delay="500ms" data-wow-duration="1200ms">
+						<div class="bi-team-item-2 text-center">
+							<div class="bi-team-img-shape position-relative">
+								<span class="team-shape shape_1 position-absolute"><img src="{{ asset('assets/img/icon/tm-shape1.png') }}" alt=""></span>
+								<span class="team-shape shape_2 position-absolute"><img src="{{ asset('assets/img/icon/tm-shape2.png') }}" alt=""></span>
+								<div class="bi-team-img ctm-img">
+									<img src="{{ asset('assets/surpriseme/cafe4.jpg') }}" alt="">
+								</div>
+							</div>
+							<div class="bi-team-text headline">
+								<h3><a href="#">Sayaji</a></h3>
+								<span>Rajkot</span>
+							</div>
+							<div class="bi-team-social ul-li">
+								<ul>
+									<li><a href="#"> <i class="fab fa-instagram"></i></a></li>
+									<li><a href="#"> <i class="fab fa-linkedin-in"></i></a></li>
+									<li><a href="#"> <i class="fab fa-facebook"></i></a></li>
+									<li><a href="#"> <i class="fab fa-youtube"></i></a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+<!-- End of team  section
+	============================================= -->
 @endsection
+<!-- End Blog section -->

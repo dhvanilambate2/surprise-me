@@ -7,6 +7,21 @@
 @endsection
 
 @section('style')
+<style>
+
+.password-input {
+    position: relative;
+}
+
+.toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+</style>
 @endsection
 
 @section('breadcrumb-title')
@@ -37,7 +52,7 @@
                                 </ul>
                             </div>
                         @endif
-                        <form class="row themeform" method="post" action="{{ url('profile/update/', $users->id) }}" enctype="multipart/form-data" id="myForm">
+                        <form class="row themeform" method="post" action="{{ url('admin/profile/update', $users->id) }}" enctype="multipart/form-data" id="myForm">
                             @csrf
                             @method('PUT') <!-- Add this line to set the correct HTTP method -->
 
@@ -54,6 +69,44 @@
                                 <div class="form-group">
                                     <label for="phone">Phone Number</label>
                                     <input class="form-control" id="phone" type="text" placeholder="Enter Number" name="phone" value="{{ old('phone', $users->phone) }}">
+                                </div>
+                            </div>
+                            <div class="btn-showcase">
+                                <button class="btn btn-primary btn-pill" type="submit">Submit</button>
+                                <button class="btn btn-light btn-pill" type="button" onclick="cancelForm()">Discard</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Change Password</h5>
+                    </div>
+                    <div class="card-body add-post">
+                       
+                        <form class="row themeform" method="post" action="{{ url('admin/password/update', $users->id) }}" enctype="multipart/form-data">
+                            @csrf
+
+                            <div class="col-sm-12">
+                                <div>
+                                    <label for="old_password">Old Password</label>
+                                    <div class="password-input">
+                                        <input id="old_password" type="password" name="old_password" class="form-control" placeholder="Enter Old Password">
+                                        <i class="fa fa-eye toggle-password" onclick="togglePasswordVisibility('old_password', this)"></i>
+                                    </div>
+                                    @error('old_password')
+                                        <span class="error_msg">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                                <div class="my-4">
+                                    <label for="new_password" class="form-label">New Password</label>
+                                    <div class="password-input">
+                                        <input id="new_password" type="password" name="new_password" class="form-control" placeholder="Enter New Password">
+                                        <i class="fa fa-eye toggle-password" onclick="togglePasswordVisibility('new_password', this)"></i>
+                                        @error('new_password')
+                                            <span class="error_msg">{{ $message }}</span>
+                                        @enderror
+                                    </div>
                                 </div>
                             </div>
                             <div class="btn-showcase">
@@ -85,4 +138,19 @@
             document.getElementById('myForm').reset();
         }
     </script>
+    <script>
+        function togglePasswordVisibility(inputId, icon) {
+            const passwordInput = document.getElementById(inputId);
+        
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            } else {
+                passwordInput.type = 'password';
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            }
+        }
+        </script>
 @endsection
